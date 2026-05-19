@@ -565,6 +565,7 @@ function animate() {
 }
 function redrawProjection(includeLightning = true) {
   globeLayer.selectAll("path").attr("d", path);
+  svg.select("#globe-clip path").attr("d", path);
   countryLayer.selectAll(".country").attr("d", path);
   backTraceLayer
     .selectAll("path.back-trace")
