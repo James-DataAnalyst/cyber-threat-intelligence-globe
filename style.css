@@ -152,11 +152,12 @@ svg:active {
   position: absolute;
   top: clamp(22px, 4vh, 48px);
   left: var(--safe-pad);
-  z-index: 20;
+  z-index: 30;
   width: clamp(310px, 30vw, 560px);
   max-width: calc(100vw - 420px);
-  pointer-events: none;
+  min-height: clamp(220px, 28vh, 280px);
 }
+
 .title-kicker,
 .panel-label {
   font-family: "Orbitron", sans-serif;
@@ -181,8 +182,9 @@ h1 {
     0 0 2px rgba(255, 255, 255, 0.9),
     0 0 18px rgba(0, 234, 255, 0.16);
 }
+
 .title-block p {
-  margin: 14px 0 0;
+  margin: 18px 0 14px;
   max-width: 470px;
   color: rgba(231, 247, 255, 0.48);
   font-size: clamp(13px, 1vw, 16px);
@@ -194,6 +196,18 @@ h1 {
   opacity: 0.86;
   font-size: 13px;
   letter-spacing: 0.12em;
+}
+
+.credit {
+  display: inline-block;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.credit:hover {
+  color: #ffffff;
+  transform: translateX(4px);
+  text-shadow: 0 0 12px rgba(0, 234, 255, 0.7);
 }
 
 .intel-card,
@@ -212,12 +226,14 @@ h1 {
     inset 0 0 34px rgba(0, 234, 255, 0.045),
     0 0 70px rgba(0, 0, 0, 0.68);
 }
+
 .left-card {
   left: var(--safe-pad);
-  top: clamp(260px, 36vh, 380px);
+  top: 360px;
   width: clamp(218px, 15vw, 258px);
-  padding: 20px 20px 22px;
+  padding: 16px 18px 18px;
 }
+
 .command-panel {
   top: clamp(20px, 3.6vh, 44px);
   right: var(--safe-pad);
@@ -228,7 +244,7 @@ h1 {
 }
 .event-panel {
   left: var(--safe-pad);
-  bottom: clamp(18px, 3.4vh, 42px);
+  top: 725px;
   width: clamp(420px, 33vw, 650px);
   padding: 15px;
 }
@@ -426,7 +442,9 @@ select option:hover {
   display: grid;
   gap: 7px;
   max-height: 145px;
-  overflow: hidden;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-right: 4px;
 }
 .feed-item {
   display: grid;
@@ -647,4 +665,21 @@ select option:hover {
   h1 {
     font-size: 30px;
   }
+}
+
+.event-feed::-webkit-scrollbar {
+  width: 6px;
+}
+
+.event-feed::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.event-feed::-webkit-scrollbar-thumb {
+  background: rgba(0, 234, 255, 0.45);
+  border-radius: 999px;
+}
+
+.event-feed::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 234, 255, 0.75);
 }
