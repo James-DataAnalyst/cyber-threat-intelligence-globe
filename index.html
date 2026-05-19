@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cyber Threat Intelligence Globe | Premium D3 Visualization</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+  <script src="https://cdn.jsdelivr.net/npm/topojson-client@3"></script>
+</head>
+<body>
+  <div id="app">
+    <div class="space-bg" aria-hidden="true"></div>
+    <div class="orbital-rings" aria-hidden="true"></div>
+
+    <section class="title-block">
+      <div class="title-kicker">[ REAL-TIME GLOBAL DEFENSE MATRIX ]</div>
+      <h1>CYBER THREAT<br />INTELLIGENCE GLOBE</h1>
+      <p>Simulated attack telemetry, regional threat clustering, route intelligence, and live defense activity.</p>
+      <div class="credit">BY JAMES ISAAC</div>
+    </section>
+
+    <aside class="intel-card left-card">
+      <div class="corner top-left"></div>
+      <div class="corner bottom-left"></div>
+      <div class="panel-label">[ SYS - INTEL ]</div>
+      <div class="stat-line"><span>ACTIVE ROUTES</span><strong id="routeStat">0</strong></div>
+      <div class="stat-line"><span>BLOCKED PACKETS</span><strong id="blockedCount">0K</strong></div>
+      <div class="stat-line"><span>GLOBAL RISK</span><strong id="riskScore">0%</strong></div>
+      <div class="stat-line"><span>SELECTED REGION</span><strong id="regionLabel">GLOBAL</strong></div>
+    </aside>
+
+    <aside class="command-panel">
+      <div class="corner top-right"></div>
+      <div class="corner bottom-right"></div>
+
+      <div class="panel-label">[ GLOBAL KPI ]</div>
+      <div class="kpi-grid">
+        <div class="kpi"><strong id="criticalCount">0</strong><span>CRITICAL</span></div>
+        <div class="kpi"><strong id="highCount">0</strong><span>HIGH</span></div>
+      </div>
+
+      <div class="panel-label">[ REGION FILTER ]</div>
+      <select id="regionFilter">
+        <option value="global">ALL REGIONS</option>
+        <option value="north-america">NORTH AMERICA</option>
+        <option value="latin-america">LATIN AMERICA</option>
+        <option value="europe">EUROPE</option>
+        <option value="africa">AFRICA</option>
+        <option value="middle-east">MIDDLE EAST</option>
+        <option value="asia-pacific">ASIA PACIFIC</option>
+      </select>
+
+      <div class="panel-label">[ SEVERITY FILTER ]</div>
+      <div class="button-grid">
+        <button class="active" data-filter="all">ALL</button>
+        <button data-filter="critical">CRITICAL</button>
+        <button data-filter="high">HIGH</button>
+        <button data-filter="medium">MEDIUM</button>
+      </div>
+
+      <div class="panel-label">[ ACTIONS ]</div>
+      <div class="button-grid">
+        <button id="autoRotate" class="active">AUTO ROTATE</button>
+        <button id="replay">REPLAY BURST</button>
+        <button id="resetView">RESET VIEW</button>
+      </div>
+
+      <div class="panel-label">[ TOP ORIGINS ]</div>
+      <div id="originRank" class="rank-list"></div>
+
+      <div class="panel-label">[ TOP TARGETS ]</div>
+      <div id="targetRank" class="rank-list cyan"></div>
+
+      <div class="source">SOURCE: SIMULATED CYBER TELEMETRY</div>
+    </aside>
+
+    <svg id="viz" aria-label="Advanced cyber threat intelligence globe visualization"></svg>
+
+    <section class="event-panel">
+      <div class="stream-title">
+        <span><span class="live-dot"></span>LIVE EVENT STREAM</span>
+        <span id="clock">00:00:00</span>
+      </div>
+      <div class="event-feed" id="feed"></div>
+    </section>
+
+    <div class="tooltip" id="tooltip"></div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
